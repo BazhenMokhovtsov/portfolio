@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <g fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+    <text x="96" y="220" font-size="64" font-weight="700">Bazhen Mokhovtsov</text>
+    <text x="96" y="290" font-size="34" fill="#cbd5e1">Back-end developer · Python · Django · REST · PostgreSQL · Docker</text>
+
+    <rect x="96" y="350" width="520" height="2" fill="#334155"/>
+
+    <text x="96" y="415" font-size="26" fill="#94a3b8">Portfolio</text>
+    <text x="96" y="460" font-size="22" fill="#94a3b8">github.com/BazhenMokhovtsov</text>
+  </g>
+</svg>
