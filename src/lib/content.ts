@@ -21,16 +21,12 @@ export type SiteContent = {
   hero: {
     headline: string;
     subheadline: string;
-    ctaProjects: string;
+    ctaProjects?: string;
     ctaContact: string;
   };
   about: {
     title: string;
     body: string;
-  };
-  projects: {
-    title: string;
-    subtitle: string;
   };
   featured: {
     title: string;
@@ -38,8 +34,8 @@ export type SiteContent = {
     description: string;
     highlightsTitle: string;
     highlights: string[];
-    repoCta: string;
-    liveCta: string;
+    repoCta?: string;
+    liveCta?: string;
   };
   experience: {
     title: string;
@@ -131,39 +127,34 @@ export const contentByLang: Record<Lang, SiteContent> = {
       },
     ],
     nav: {
-      projects: "Projects",
+      projects: "Work",
       tech: "Tech",
       contact: "Contact",
     },
     hero: {
-      headline: "Building reliable back-end systems",
+      headline: "Building production-ready backend systems",
       subheadline:
-        "I focus on pragmatic engineering: clean APIs, data modeling, and maintainable services.",
-      ctaProjects: "View projects",
+        "I specialize in scalable Django applications with async processing, monitoring, and deployment automation.",
       ctaContact: "Contact",
     },
     about: {
       title: "About",
-      body: "I’m a back-end developer based in Germany. Here you can find my selected GitHub projects and the technologies I use.",
-    },
-    projects: {
-      title: "Projects",
-      subtitle: "Auto-generated from GitHub (sorted by last update).",
+      body: "I'm a backend developer focused on production-grade Django applications. My work emphasizes async processing, monitoring, and deployment automation for scalable SaaS solutions.",
     },
     featured: {
       title: "Featured project",
-      name: "To-Show",
+      name: "Menu Generator",
       description:
-        "A meal planning web app: users can add recipes, browse existing ones, and generate meal plans for a selected time period. Data is stored per user account.",
-      highlightsTitle: "What it demonstrates",
+        "Production-ready meal planning SaaS with async task processing, real-time caching, and comprehensive monitoring. Handles complex menu generation algorithms with PostgreSQL optimization and Redis-based session management.",
+      highlightsTitle: "Backend Architecture & Production Features",
       highlights: [
-        "Backend-first approach (Python / Django)",
-        "REST APIs and integrations",
-        "PostgreSQL data modeling",
-        "Docker / Docker Compose deployment workflow",
+        "Django + DRF with PostgreSQL, Redis caching, and Celery async workers",
+        "Docker Compose production stack: Nginx + Gunicorn + SSL (Certbot)",
+        "Advanced Celery setup: dedicated queues, Beat scheduler, worker optimization",
+        "Performance testing with Locust, monitoring via Prometheus + Grafana",
+        "Production CI/CD: GitHub Actions, automated health checks, backup workflows",
+        "REST API design with async task patterns, Redis session management",
       ],
-      repoCta: "View repository",
-      liveCta: "Live demo",
     },
     experience: {
       title: "Experience",
@@ -203,8 +194,7 @@ export const contentByLang: Record<Lang, SiteContent> = {
     },
     contact: {
       title: "Contact",
-      subtitle:
-        "For fastest response, use email or LinkedIn. You can also find all my code on GitHub.",
+      subtitle: "For fastest response, use email or LinkedIn.",
       emailLabel: "Email",
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",
@@ -274,45 +264,40 @@ export const contentByLang: Record<Lang, SiteContent> = {
       },
     ],
     nav: {
-      projects: "Projekte",
+      projects: "Arbeit",
       tech: "Technologien",
       contact: "Kontakt",
     },
     hero: {
       headline: "Zuverlässige Back-End-Systeme entwickeln",
       subheadline:
-        "Mein Fokus: pragmatisches Engineering — saubere APIs, Datenmodellierung und wartbare Services.",
-      ctaProjects: "Projekte ansehen",
+        "Ich spezialisiere mich auf skalierbare Django-Anwendungen mit asynchroner Verarbeitung, Überwachung und Automatisierung der Bereitstellung.",
       ctaContact: "Kontakt",
     },
     about: {
       title: "Über mich",
-      body: "Ich bin ein Back-End-Developer in Deutschland. Hier findest du ausgewählte GitHub-Projekte und die Technologien, die ich nutze.",
-    },
-    projects: {
-      title: "Projekte",
-      subtitle: "Automatisch aus GitHub generiert (sortiert nach letztem Update).",
+      body: "Ich bin ein Back-End-Entwickler, der sich auf die Entwicklung von Produktions-Grade-Django-Anwendungen konzentriert. Meine Arbeit betont asynchrone Verarbeitung, Überwachung und Automatisierung der Bereitstellung für skalierbare SaaS-Lösungen.",
     },
     featured: {
-      title: "Top-Projekt",
-      name: "To-Show",
+      title: "Herausragendes Projekt",
+      name: "Menu Generator",
       description:
-        "Eine Meal-Planning-Web-App: Nutzer können eigene Rezepte hinzufügen, vorhandene durchsuchen und Essenspläne für einen Zeitraum (z. B. eine Woche) generieren. Alle Daten werden pro Benutzerkonto gespeichert.",
-      highlightsTitle: "Was es zeigt",
+        "Ein Produktions-Grade-Meal-Planning-SaaS mit asynchroner Aufgabenverarbeitung, Echtzeit-Caching und umfassender Überwachung. Behandelt komplexe Menü-Generierungs-Algorithmen mit PostgreSQL-Optimierung und Redis-basierter Sitzungsverwaltung.",
+      highlightsTitle: "Back-End-Architektur & Produktions-Features",
       highlights: [
-        "Backend-first Ansatz (Python / Django)",
-        "REST APIs und Integrationen",
-        "PostgreSQL Datenmodellierung",
-        "Docker / Docker Compose Deployment-Workflow",
+        "Django + DRF mit PostgreSQL, Redis-Caching und Celery-Async-Workern",
+        "Docker Compose-Produktions-Stack: Nginx + Gunicorn + SSL (Certbot)",
+        "Erweiterte Celery-Konfiguration: dedizierte Warteschlangen, Beat-Scheduler, Worker-Optimierung",
+        "Leistungstests mit Locust, Überwachung via Prometheus + Grafana",
+        "Produktions-CD/CI: GitHub Actions, automatisierte Gesundheitsprüfungen, Backup-Workflows",
+        "REST-API-Design mit asynchronen Aufgabenmustern, Redis-Sitzungsverwaltung",
       ],
-      repoCta: "Repository ansehen",
-      liveCta: "Live-Demo",
     },
     experience: {
       title: "Erfahrung",
       subtitle: "Basierend auf LinkedIn.",
       summary:
-        "Ich entwickle skalierbare und wartbare Backend-Lösungen mit Python, Django und REST-APIs sowie moderne Deployment-Pipelines mit Docker, Docker Compose und CI/CD (GitHub Actions). Erfahrung in PostgreSQL-Datenbanken, Linux-Server-Umgebungen, Monitoring (Grafana) und produktivem Deployment sorgt für stabile, reproduzierbare Ergebnisse.",
+        "Ich entwickle skalierbare und wartbare Back-End-Lösungen mit Python, Django und REST-APIs sowie moderne Bereitstellungs-Pipelines mit Docker, Docker Compose und CI/CD (GitHub Actions). Erfahrung in PostgreSQL-Datenbanken, Linux-Server-Umgebungen, Überwachung (Grafana) und produktivem Deployment sorgt für stabile, reproduzierbare Ergebnisse.",
       pitch:
         "Python/Django Backend Engineer – ich liefere saubere, getestete und produktionsreife Backend-Lösungen inkl. Docker-Deployment und automatisierten CI/CD-Pipelines.",
       bulletsTitle: "Delivery & CI/CD",
@@ -346,8 +331,7 @@ export const contentByLang: Record<Lang, SiteContent> = {
     },
     contact: {
       title: "Kontakt",
-      subtitle:
-        "Am schnellsten erreichst du mich per E-Mail oder LinkedIn. Auf GitHub findest du meinen Code.",
+      subtitle: "Am schnellsten erreichst du mich per E-Mail oder LinkedIn.",
       emailLabel: "E-Mail",
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",

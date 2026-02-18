@@ -1,10 +1,8 @@
 import { ContactCard } from "@/components/ContactCard";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
 import { contentByLang, normalizeLang } from "@/lib/content";
-import { getRepos } from "@/lib/github";
 
 export default async function Home({
   searchParams,
@@ -14,13 +12,6 @@ export default async function Home({
   const params = await searchParams;
   const lang = normalizeLang(params.lang);
   const content = contentByLang[lang];
-
-  const repos = await getRepos();
-
-  const featuredRepo = repos.find((r) => r.name.toLowerCase() === "to-show");
-  const topRepos = repos
-    .filter((r) => r.id !== featuredRepo?.id)
-    .slice(0, 6);
 
   return (
     <div className="min-h-screen">
@@ -42,12 +33,6 @@ export default async function Home({
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a
                   className="inline-flex h-11 items-center justify-center rounded-full bg-black px-5 text-sm font-medium text-white hover:bg-black/85 dark:bg-white dark:text-black dark:hover:bg-white/85"
-                  href={`/?lang=${lang}#projects`}
-                >
-                  {content.hero.ctaProjects}
-                </a>
-                <a
-                  className="inline-flex h-11 items-center justify-center rounded-full border border-black/10 px-5 text-sm font-medium hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10"
                   href={`/?lang=${lang}#contact`}
                 >
                   {content.hero.ctaContact}
@@ -77,27 +62,7 @@ export default async function Home({
                     {content.featured.description}
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <a
-                    className="inline-flex h-10 items-center justify-center rounded-full bg-black px-4 text-sm font-medium text-white hover:bg-black/85 dark:bg-white dark:text-black dark:hover:bg-white/85"
-                    href={featuredRepo?.html_url ?? "https://github.com/BazhenMokhovtsov/To-Show"}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {content.featured.repoCta}
-                  </a>
-                  {featuredRepo?.homepage ? (
-                    <a
-                      className="inline-flex h-10 items-center justify-center rounded-full border border-black/10 px-4 text-sm font-medium hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10"
-                      href={featuredRepo.homepage}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {content.featured.liveCta}
-                    </a>
-                  ) : null}
-                </div>
-              </div>
+                              </div>
 
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-black/60 dark:text-white/60">
@@ -112,32 +77,10 @@ export default async function Home({
                 </ul>
               </div>
 
-              {featuredRepo?.description ? (
-                <p className="text-xs text-black/60 dark:text-white/60">
-                  GitHub: {featuredRepo.description}
-                </p>
-              ) : null}
-            </div>
+                          </div>
           </Section>
 
-          <Section id="projects" title={content.projects.title} subtitle={content.projects.subtitle}>
-            <div className="grid gap-4 md:grid-cols-2">
-              {topRepos.map((repo) => (
-                <ProjectCard key={repo.id} repo={repo} />
-              ))}
-            </div>
-            <div className="mt-6">
-              <a
-                className="text-sm font-medium hover:underline"
-                href={content.contacts.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {content.contacts.githubUrl}
-              </a>
-            </div>
-          </Section>
-
+          
           <Section
             id="experience"
             title={content.experience.title}
