@@ -21,14 +21,14 @@ export function Header({ content, lang }: { content: SiteContent; lang: string }
           </p>
         </div>
         <nav className="hidden items-center gap-4 text-sm md:flex">
-          <a className="hover:underline" href={hrefWithLang("#projects")}>
-            {content.nav.projects}
-          </a>
           <a className="hover:underline" href={hrefWithLang("#tech")}>
             {content.nav.tech}
           </a>
           <a className="hover:underline" href={hrefWithLang("#contact")}>
             {content.nav.contact}
+          </a>
+          <a className="hover:underline" href={`/?lang=${lang}`}>
+            Back to top
           </a>
         </nav>
         <LanguageToggle />

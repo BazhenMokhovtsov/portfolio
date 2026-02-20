@@ -61,6 +61,16 @@ export default async function Home({
                   <p className="mt-3 max-w-3xl text-sm leading-6 text-black/70 dark:text-white/70">
                     {content.featured.description}
                   </p>
+                  {content.featured.role ? (
+                    <div className="mt-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-black/60 dark:text-white/60">
+                        {content.featured.roleTitle}
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-black/70 dark:text-white/70">
+                        {content.featured.role}
+                      </p>
+                    </div>
+                  ) : null}
                 </div>
                               </div>
 
